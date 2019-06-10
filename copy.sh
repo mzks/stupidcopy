@@ -27,8 +27,8 @@ main(){
 	echo "file list"
 	echo $list
 
-	echo 	"scp -r -v -C ${host}:${fileheader}\{${list}}\* ${fileplace}"
-		`scp -r -v -C ${host}:${fileheader}\{${list}}\* ${fileplace}`
+	echo	"rsync -r -avhcuz --progress --append --partial ${host}:${fileheader}\{${list}}\* ${fileplace}"
+		`rsync -r -avhcuz --progress --append --partial ${host}:${fileheader}\{${list}}\* ${fileplace}`
 
 	echo "Copy succeeded"
 	return 0
